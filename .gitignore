@@ -13,5 +13,5 @@ venv.bak/
 
 # Project Specific
 chest_xray/
-exports/
+# exports/ (allowing models for deployment)
 verification_results/

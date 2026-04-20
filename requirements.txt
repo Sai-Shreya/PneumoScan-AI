@@ -1,9 +1,10 @@
 tensorflow>=2.10.0
-opencv-python
+opencv-python-headless
 matplotlib
 seaborn
 scikit-learn
 streamlit
 pandas
 numpy
-flask
+reportlab
+pillow

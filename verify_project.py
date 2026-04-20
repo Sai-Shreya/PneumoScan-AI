@@ -1,6 +1,6 @@
 """
 verify_project.py
-─────────────────
+-----------------
 Quick verification script:
  - Loads the trained Custom CNN
  - Runs predictions on 1 PNEUMONIA + 1 NORMAL test image
@@ -18,7 +18,7 @@ from src.gradcam import (get_gradcam_heatmap, overlay_heatmap_on_image,
 
 def verify():
     print("=" * 60)
-    print("  PneumoScan AI — Project Verification")
+    print("  PneumoScan AI - Project Verification")
     print("=" * 60)
 
     if not os.path.exists(CUSTOM_MODEL_PATH):
@@ -53,7 +53,7 @@ def verify():
         conf      = pred_raw if pred_raw > 0.5 else 1 - pred_raw
 
         print(f"  Prediction : {pred_lbl} ({conf*100:.2f}%)")
-        print(f"  Correct    : {'✓' if pred_lbl == true_label else '✗'}")
+        print(f"  Correct    : {'YES' if pred_lbl == true_label else 'NO'}")
 
         # Grad-CAM
         heatmap         = get_gradcam_heatmap(model, img_arr, last_conv)
@@ -62,7 +62,7 @@ def verify():
 
         save_path = os.path.join("verification_results", f"sample_{i+1}_gradcam.jpg")
         cam_pil.save(save_path)
-        print(f"  Heatmap    : saved → {save_path}")
+        print(f"  Heatmap    : saved -> {save_path}")
         print(f"  Hot area % : {stats['hot_area_pct']:.1f}%")
         print(f"  Focus      : {analysis['summary']}")
 
